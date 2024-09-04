@@ -1,0 +1,16 @@
+{% extends 'kanban_logs\base.html'%}
+
+{% block content %}
+<p>Tópicos:</p>
+
+<ul>
+    {% for topic in topics %}
+        <li>
+            <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+        </li>
+        {% empty %}
+        <li>Nenhum tópico encontrado.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

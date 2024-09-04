@@ -1,0 +1,22 @@
+{% extends 'kanban_logs/base.html' %}
+
+{% block content %}
+
+    <h3>Tópico {{ topic }}</h3>
+
+    <p>Entradas: </p>
+
+    <ul>
+        {% for entry in entries %}
+        <li>
+            <p>{{ entry.date_added | date:'M d, Y H:i' }}</p><!--O date serve para formatar a data das anotações dos tópicos-->
+            <p>{{ entry.text | linebreaks }}</p><!--O linebreaks serve para quebrar linhas para que o texto  fique de maneira compreensiva-->
+        </li>
+        {% empty %}
+        <li>
+            Não há nenhuma anotação
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
