@@ -19,5 +19,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Kanban_logs.urls'))#Quando não tiver nada apos a url vá para o arquivo urls do app Kanban.logs
+    path('', include('Kanban_logs.urls')),#Quando não tiver nada apos a url vá para o arquivo urls do app Kanban.logs
+    path('users/', include('users.urls'))
 ]

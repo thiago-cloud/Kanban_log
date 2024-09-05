@@ -4,13 +4,18 @@
 
     <h3>Tópico {{ topic }}</h3>
 
-    <p>Entradas: </p>
+    <p>Anotações: </p>
+
+    <p><a href="{% url 'new_entry' topic.id %}">Adicione uma nova anotação</a></p>
 
     <ul>
         {% for entry in entries %}
         <li>
             <p>{{ entry.date_added | date:'M d, Y H:i' }}</p><!--O date serve para formatar a data das anotações dos tópicos-->
             <p>{{ entry.text | linebreaks }}</p><!--O linebreaks serve para quebrar linhas para que o texto  fique de maneira compreensiva-->
+            <p>
+                <a href="{% url 'edit_entry' entry.id %}">Editar</a>
+            </p>
         </li>
         {% empty %}
         <li>

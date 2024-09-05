@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Kanban_logs'
+    'Kanban_logs',
+    'users',
+    
 ]
 
 MIDDLEWARE = [

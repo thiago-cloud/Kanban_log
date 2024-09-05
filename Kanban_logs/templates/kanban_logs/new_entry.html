@@ -1,0 +1,15 @@
+{% extends 'kanban_logs/base.html' %}
+
+{% block content %}
+
+    <p><a href="{% url 'topic' topic.id %}">{{ topic }}</a></p>
+
+    <p>Acrescente uma nova anotação ao tópico </p>
+    
+    <form action="{% url 'new_entry' topic.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Adicionar</button>
+    </form>
+
+{% endblock content %}
