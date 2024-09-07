@@ -2,12 +2,7 @@
 
 
 {% block content %}
-
-    <!--form.errors vem do LoginView serve para sinalizar o usuario caso exista algum error.-->
-    {% if form.errors%}
-        <p>Seus dados estão incorretos. Por favor, tente novamente.</p>
-    {% endif %}
-
+    
     <!--Formlário login já esta pronto ele vem da importação do django LoginView no caso so foi acrescentado algumas funções a mais.-->
     <form action="" method="post">
         {% csrf_token %}

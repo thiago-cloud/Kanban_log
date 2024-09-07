@@ -5,7 +5,9 @@ from .models import Entry
 from .forms import TopicForm, EntryForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required # Essa lib do django servira para fazer as renstrições de páginas especificas quando não tiver logado.
 
+# Um decorators serve para alterar o comportamento de uma função sem precisar modificar o código.
 
 def index(request):
 
@@ -13,7 +15,7 @@ def index(request):
 
     return render(request, 'kanban_logs/index.html') #O django vai procurar o caminho automaticamente dentro de template o render ja procura por se so dentro da pasta template
 
-
+@login_required #O login_required servira para caso o usuário não esteja logado ele acessará o tópico. mais para que funcione e necessário informar ao django qual é a página de logi no arquivo seetting.py da raiz do projeto.
 def topics(request):
 
     """´Mostrar todos os topicos"""
@@ -23,7 +25,7 @@ def topics(request):
 
     return render(request, 'kanban_logs/topics.html', context)
 
-
+@login_required
 def topic(request, topic_id):
 
     """Mostra um unico assunto(tópico) e todas as suas utilidades."""
@@ -34,7 +36,7 @@ def topic(request, topic_id):
 
     return render(request,'kanban_logs/topic.html', context)
 
-
+@login_required
 def new_topic(request):
 
     """Adiciona um novo Tópico."""
@@ -53,7 +55,7 @@ def new_topic(request):
 
     return render(request, 'kanban_logs/new_topic.html', context)
 
-
+@login_required
 def new_entry(request, topic_id):
 
     """Adiciona uma nova anotação."""
@@ -76,7 +78,7 @@ def new_entry(request, topic_id):
 
     return render(request, 'kanban_logs/new_entry.html', context)
 
-
+@login_required
 def edit_entry(request, entry_id):
     
     """Edita uma entrada(anotação) existente."""
