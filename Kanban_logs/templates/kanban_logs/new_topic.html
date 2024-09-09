@@ -1,14 +1,22 @@
 {% extends 'kanban_logs/base.html' %}
+{% load bootstrap5 %}
+
+
+{% block header %}
+    <h2>Adicione um novo tópico: </h2>
+{% endblock header %}
 
 {% block content %}
-
-    <p>Adicione um novo tópico: </p>
     
     <!--No django não precisa criar os campos dentro da tag form porque ao declarar os campos no arquivo forms e no views ele subentender automaticamente que dentro da tag form os campos serão os que estão no arquivo form.py-->
-    <form action="{% url 'new_topic' %}" method="post">
+    <form action="{% url 'new_topic' %}" method="post" class="form">
         {% csrf_token %}<!--E sempre necessário colocar o csrf_token ele serve para garantir mais segurança no formulário contra ataques hackers e uma tag do django-->
-        {{ form.as_p }}<!--Essa tag serve para organizar os campos no django colocando um debaixo do outro como quebra de linha aqui não vai ficar visivel sua utilidade porque será apenas um campo-->
-        <button name="submit">Adicionar</button>
+        <div class="col-4">
+            {% bootstrap_form form%}
+        </div>
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Adicionar</button>
+        {% endbuttons %}
     </form>
 
 {% endblock content %}

@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Kanban_logs',
     'users',
+
+    # Instalando apps de terceiros.
+    'bootstrap5',
     
 ]
 
@@ -126,5 +129,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#Informando para o django qual e página de login
+# Informando para o django qual e página de login.
 LOGIN_URL = '/users/login'
+
+# Incluindo o javascript do bootstrap no django.
+BOOTSTRAP5 = {
+    'include_jquery': True,
+}

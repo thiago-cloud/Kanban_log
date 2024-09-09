@@ -1,4 +1,14 @@
 {% extends 'kanban_logs/base.html' %}
-<h2>irineu</h2>
 
-{% block content %}{% endblock content %}<!--Pegando o conteúdo do arquivo index.html -->
+
+{% block header %}
+    <div class="mt-4 p-5 bg-secondary shadow p-3 mb-5 bg-secondary text-white rounded">
+        <h1>Conduza seu aprendizado.</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <h2>
+        <a href="{%  url 'register' %}">Crie uma conta</a> para utilizar o kanban logs e liste os tópicos que você está aprendendo.
+    </h2>
+{% endblock content %}<!--Pegando o conteúdo do arquivo index.html -->

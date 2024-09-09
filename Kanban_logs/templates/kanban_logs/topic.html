@@ -1,8 +1,15 @@
 {% extends 'kanban_logs/base.html' %}
+{% load bootstrap5 %}
+
+{% block header %}
+    <h1>
+        <h3>Tópico: {{ topic }}</h3>
+    </h1>
+{% endblock header %}
 
 {% block content %}
 
-    <h3>Tópico {{ topic }}</h3>
+    
 
     <p>Anotações: </p>
 

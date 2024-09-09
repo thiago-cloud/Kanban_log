@@ -1,13 +1,18 @@
-{% extends 'kanban_logs/base.html' %}<!--Podemos extender para qualque app que for criado no django.-->
 
+{% extends 'kanban_logs/base.html' %}<!--Podemos extender para qualque app que for criado no django.-->
+{% load bootstrap5 %}
 
 {% block content %}
     
     <!--Formlário login já esta pronto ele vem da importação do django LoginView no caso so foi acrescentado algumas funções a mais.-->
-    <form action="" method="post">
+    <form action="" method="post" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Entrar</button>
+        <div class="col-4">
+            {% bootstrap_form form %}
+        </div>
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Entrar</button>
+        {% endbuttons %}
         <input type="hidden" name="next" value="{% url 'index' %}"/>
     </form>
 

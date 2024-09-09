@@ -1,18 +1,27 @@
 {% extends 'kanban_logs\base.html'%}
+{% load bootstrap5 %}
+
+{% block header %}
+    <h1>Tópicos:</h1>
+{% endblock header %}
 
 {% block content %}
-<p>Tópicos:</p>
-
 <ul>
     {% for topic in topics %}
         <li>
-            <a href="{% url 'topic' topic.id %}">{{ topic }}</a>
+            <h3>
+                <a class="text-decoration-none" href="{% url 'topic' topic.id %}">{{ topic }}</a>
+            </h3>
         </li>
         {% empty %}
-        <li>Nenhum tópico encontrado.</li>
+        <li>
+            <h3>
+                Nenhum tópico encontrado.
+            </h3>
+        </li>
     {% endfor %}
 </ul>
-
-<a href="{% url 'new_topic' %} "> Novo Tópico </a>
-
+<h3>
+    <a class="text-decoration-none" href="{% url 'new_topic' %} "> Novo Tópico </a>
+<h3>
 {% endblock content %}
