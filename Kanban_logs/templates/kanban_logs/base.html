@@ -4,7 +4,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="30"><!--Atualiza o documento a cada 30 segundos-->
+        <!--<meta http-equiv="refresh" content="30">--><!--Atualiza o documento a cada 30 segundos-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!--Informa para o navegador que estar sendo utilizado que ele deve tratar o projeto com a versão mais recente.-->
         <meta name="description" content="Aplicação de anotações de atividades que são aprendidas.">
         <meta name="keywords" content="anotações, anotação, kanban, kanban_logs, topicos">
@@ -16,7 +16,19 @@
         <!--Tags do bootstrap utilizando o bootstrap na página-->
         {% bootstrap_css %}
         {% bootstrap_javascript %}
+        <style>
+            .ul-none ul{
+                display: none;
+            }
+            .ul-none small{
+                display:none;
+            }
+            
+            .aviso-error{
+                color:red;
+            }
 
+        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg bg-body-tertiary nav-static-top navbar-dark bg-primary shadow p-3 mb-5 bg-primary">
@@ -29,23 +41,33 @@
                         aria-controls="navbarNav" 
                         aria-expanded="false" 
                         aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon">-</span>
+                        <span class="navbar-toggler-icon text-white"></span>
                     </button>
                     <a  class="navbar-brand" href="{% url 'index'%}">Kanban Log</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="nav navbar-nav">
+                    <!--<ul class="nav navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'topics'%}">Tópicos</a>
                         </li>
-                    </ul>
-
+                    </ul>-->
                     <ul class="nav navbar-nav ms-auto">
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><a class="nav-link text-white" href="#">Olá {{ user.username }}!</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="{% url 'logout' %}">Sair</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Olá {{ user.username }}!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'topics'%}">Tópicos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'logout' %}">Sair</a>
+                            </li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link text-white" href="{% url 'register' %}">Registrar</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="{% url 'login' %}">Entrar</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'register' %}">Registrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="{% url 'login' %}">Entrar</a>
+                            </li>
                         {% endif %}
                     </ul>
                 </div>

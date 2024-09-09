@@ -1,15 +1,25 @@
 {% extends 'kanban_logs/base.html' %}
+{% load bootstrap5 %}
+
+{% block header %}
+    <h1>
+        {{ topic }}
+    </h1>
+{% endblock header %}
 
 {% block content %}
 
-    <p><a href="{% url 'topic' topic.id %}">{{ topic }}</a></p>
-
-    <p>Acrescente uma nova anotação ao tópico </p>
+    <h3>Acrescente uma nova anotação ao tópico </h3>
     
     <form action="{% url 'new_entry' topic.id %}" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Adicionar</button>
+        <div class="col-6">
+            {% bootstrap_form form %}
+        </div>
+        {% buttons %}
+            <button class="btn btn-primary" name="submit">Adicionar</button>
+            <a class="text-decoration-none btn btn-primary" href="{% url 'topic' topic.id %}">Cancelar</a>
+        {% endbuttons %}
     </form>
 
 {% endblock content %}

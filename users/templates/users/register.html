@@ -1,12 +1,30 @@
 {% extends 'kanban_logs/base.html' %}
+{% load bootstrap5 %}
+
+{% block header %}
+    <h3>
+        Criar conta
+    </h3>
+{% endblock header %}
 
 {% block content %}
 
-    <form action="" method='post'>
+    {% if form.errors %}
+        <p class="aviso-error">* O nome de usuário não deve conter caracteres especiais.</p>
+        <p class="aviso-error">* A senha deve conter mais de 8 digitos.</p>
+        <p class="aviso-error">* A senha deve conter números, letras e caracteres especiais. </p>
+        <p class="aviso-error">* A senha não pode conter o nome de usuário.</p>
+        <p class="aviso-error">* As senhas digitadas precisam ser iguais.</p>
+    {% endif %}
+    <form action="{%url 'register' %}" method='post' class="ul-none">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button name="submit">Registrar</button>
-        <input type='hidden' name='next' value="{% url 'index' %}"/>
+        <div class="col-4">
+            {% bootstrap_form form %}
+        </div>
+        {% buttons %}
+            <button class="btn btn-primary" name="submit">Registrar</button>
+            <input type='hidden' name='next' value="{% url 'index' %}"/>
+        {% endbuttons %}
     </form>
 
 {% endblock content %}

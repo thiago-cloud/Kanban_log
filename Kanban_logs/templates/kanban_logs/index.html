@@ -1,14 +1,25 @@
 {% extends 'kanban_logs/base.html' %}
 
-
 {% block header %}
     <div class="mt-4 p-5 bg-secondary shadow p-3 mb-5 bg-secondary text-white rounded">
         <h1>Conduza seu aprendizado.</h1>
     </div>
 {% endblock header %}
 
+
 {% block content %}
-    <h2>
-        <a href="{%  url 'register' %}">Crie uma conta</a> para utilizar o kanban logs e liste os tópicos que você está aprendendo.
-    </h2>
+
+    {% if user.is_authenticated %}
+        <h2>
+            Cada vez que você adquirir um novo conhecimento, crie um tópico específico para o que aprendeu e faça uma anotação com um resumo conciso, destacando os principais pontos.
+        </h2>
+    {% else %}
+        <h2>
+            <a class="text-decoration-none" href="{%  url 'register' %}">Crie uma conta</a> para utilizar o kanban logs e liste os tópicos que você está aprendendo.
+        </h2>
+        <h2>
+            Cada vez que você adquirir um novo conhecimento, crie um tópico específico para o que aprendeu e faça uma anotação com um resumo conciso, destacando os principais pontos.
+        </h2>
+    {% endif %}
+
 {% endblock content %}<!--Pegando o conteúdo do arquivo index.html -->

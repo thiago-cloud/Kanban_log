@@ -1,16 +1,23 @@
 {% extends 'kanban_logs/base.html' %}
+{% load bootstrap5 %}
 
+{% block header %}
+    <h3>
+        Editar anotação:
+    </h3>
+{% endblock header %}
 
 {% block content %}
 
-<p><a href="{% url 'topic' topic.id %}">Cancelar</a></p>
-
-<p>Editar anotação:</p>
-
 <form action="{% url 'edit_entry' entry.id %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Salvar</button>
+    <div class="col-6">
+        {% bootstrap_form form %}
+    </div>
+    {% buttons %}
+        <button class="btn btn-primary" name="submit">Salvar</button>
+        <a class="btn btn-primary text-decoration-none" href="{% url 'topic' topic.id %}">Cancelar</a>
+    {% endbuttons %}
 </form>
 
 {% endblock content %}

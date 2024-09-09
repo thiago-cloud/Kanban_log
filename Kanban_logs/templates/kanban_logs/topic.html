@@ -3,7 +3,7 @@
 
 {% block header %}
     <h1>
-        <h3>Tópico: {{ topic }}</h3>
+        {{ topic }}
     </h1>
 {% endblock header %}
 
@@ -11,23 +11,32 @@
 
     
 
-    <p>Anotações: </p>
+    <h2>Anotações: </h2>
 
-    <p><a href="{% url 'new_entry' topic.id %}">Adicione uma nova anotação</a></p>
+    <p><a class="text-decoration-none" style="font-size:13pt;" href="{% url 'new_entry' topic.id %}">Adicione uma nova anotação</a></p>
 
     <ul>
         {% for entry in entries %}
-        <li>
-            <p>{{ entry.date_added | date:'M d, Y H:i' }}</p><!--O date serve para formatar a data das anotações dos tópicos-->
-            <p>{{ entry.text | linebreaks }}</p><!--O linebreaks serve para quebrar linhas para que o texto  fique de maneira compreensiva-->
-            <p>
-                <a href="{% url 'edit_entry' entry.id %}">Editar</a>
-            </p>
-        </li>
+            <div class="card"> 
+                <div class="card-header">
+                    <h3>
+                        {{ entry.date_added | date:'M d, Y H:i' }}<!--O date serve para formatar a data das anotações dos tópicos-->
+                        <small style="font-size:13pt;">
+                            <a class="text-decoration-none" href="{% url 'edit_entry' entry.id %}">Editar anotação</a>
+                        </small>
+                    </h3>  
+                </div>
+                <div class="card-body">
+                    {{ entry.text | linebreaks }}<!--O linebreaks serve para quebrar linhas para que o texto  fique de maneira compreensiva-->
+                </div>
+            </div>
+            
         {% empty %}
-        <li>
-            Não há nenhuma anotação
-        </li>
+            <div>
+                <h3>
+                    Não há nenhuma anotação
+                </h3>
+            </div>
         {% endfor %}
     </ul>
 

@@ -12,6 +12,11 @@ def logout_views(request):
 
 def register(request):
     """Faz registro de usuário."""
+
+    # Se o usuário estiver autenticado não conseguira entrar na página de register mesmo colocando a url de register.
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
+
     if request.method != 'POST':
         # Se for diferente de post retorne o formulário em branco.
         form = UserCreationForm()
