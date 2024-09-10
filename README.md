@@ -34,5 +34,10 @@ Kanban Logs é uma aplicação web desenvolvida com Python, Django, e Bootstrap 
 
 ## Como Executar
 
-1. No terminal digite do powershell ou o git bash digite `git clone https://github.com/thiago-cloud/Kanban_log.git` de preferencia em Desktop.
-2. Em seguida vá até a raiz do projeto Kanban_log
+1. No terminal do powershell ou o git bash digite `git clone https://github.com/thiago-cloud/Kanban_log.git` em desktop ou pasta de sua preferência.
+2. Em seguida vá até a raiz do projeto cd Kanban_log e digite: `. ll_env/Scripts/activate` para ativar o ambiente virtual do projeto.
+3. Após ativar o ambiente do projeto você estara dentro do ambiente agora, digite `python -m ensurepip --default-pip` para instalar as depêndencias do gerenciador de pacotes pip.
+4. Instale o django o comando é: `pip install django`.
+5. Instalação do bootstrap5 o comando é: `pip install django-bootstrap-v5`
+6. Build do projeto: `python .\manage.py runserver`.
+7. OBS: Os comando devem ser digitados na raiz do projeto com ambiente virtual ativo ou seja dentro do ambiente virtual que no caso o ambiente virtual criado se chama ll_env.
