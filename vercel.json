@@ -1,3 +1,13 @@
 {
-    "rewrites": [{ "source": "/kanban_logs(.*)", "destination": "/Kanban_logs/templates/kanban_logs" }]
+    "builds": [{
+        "src": "Kanban_log/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "Kanban_log/wsgi.py"
+        }
+    ]
 }
