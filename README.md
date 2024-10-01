@@ -36,8 +36,9 @@ Kanban Logs é uma aplicação web desenvolvida com Python, Django, e Bootstrap 
 
 1. No terminal do Powershell ou o git bash digite `git clone https://github.com/thiago-cloud/Kanban_log.git` em desktop ou pasta de sua preferência.
 2. Em seguida vá até a raiz do projeto cd Kanban_log e digite: `. ll_env/Scripts/activate` para ativar o ambiente virtual do projeto.
-3. Após ativar o ambiente do projeto você estara dentro do ambiente agora, digite `python -m ensurepip --default-pip` para instalar as depêndencias do gerenciador de pacotes pip.
-4. Instale o django o comando é: `pip install django`.
-5. Instalação do bootstrap5 o comando é: `pip install django-bootstrap-v5`
-6. Build do projeto: `python .\manage.py runserver`.
-7. OBS: Os comandos devem ser digitados na raiz do projeto com ambiente virtual ativo, ou seja, dentro do ambiente virtual que no caso o ambiente virtual criado se chama ll_env.
+3. Vá à raiz do projeto, a raiz do projeto tem o arquivo **settings.py**, nesse mesmo arquivo troque `ALLOWED_HOST = ['.vercel.app']` para `ALLOWED_HOST = ['']` isso e necessário para rodar o projeto na máquina local no lugar de rodar no vercel.
+4. Após ativar o ambiente do projeto você estara dentro do ambiente agora, digite `python -m ensurepip --default-pip` para instalar as depêndencias do gerenciador de pacotes pip.
+5. Instale o django o comando é: `pip install django`.
+6. Instalação do bootstrap5 o comando é: `pip install django-bootstrap-v5`
+7. Build do projeto: `python .\manage.py runserver`.
+8. OBS: Os comandos devem ser digitados na raiz do projeto com ambiente virtual ativo, ou seja, dentro do ambiente virtual que no caso o ambiente virtual criado se chama ll_env.
