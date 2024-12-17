@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ej$**@0yqn_@ut3@gn4av1-@0clkz3^x!x46yjx=mlx=_bcze5
 DEBUG = True
 
 #Permissão do deploy no vercel
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
