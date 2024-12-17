@@ -15,4 +15,5 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Kanban_log.settings')
 
 application = get_wsgi_application()
 
+#Conectar ao deploy
 app = application

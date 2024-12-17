@@ -1,4 +1,5 @@
 {% load bootstrap5 %}<!-- Toda vez que for utilizar o bootstrap no django e necessário inserir essa tag, chamada de tag de contexto. -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,13 +11,25 @@
         <meta name="keywords" content="anotações, anotação, kanban, kanban_logs, topicos">
         <meta name="author" content="Thiago Alves">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
 
-        <title>Kanban_logs</title>
+        <title>KanbanLog</title>
         
         <!--Tags do bootstrap utilizando o bootstrap na página-->
         {% bootstrap_css %}
         {% bootstrap_javascript %}
         <style>
+
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
             .ul-none ul{
                 display: none;
             }
@@ -26,6 +39,28 @@
             
             .aviso-error{
                 color:red;
+            }
+
+            h2{
+                margin-bottom:10vh;
+            }
+
+            .content {
+                flex: 1;
+            }
+
+            footer {
+                background-color: #0d6efd;
+                color: white;
+                text-align: center;
+                padding: 10px 0;
+                margin-top: auto;
+                box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, .15)
+            }
+
+            .footer-content a{
+                color:azure;
+                text-decoration: none;
             }
 
         </style>
@@ -43,7 +78,9 @@
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon text-white"></span>
                     </button>
-                    <a  class="navbar-brand" href="{% url 'index'%}">Kanban Log</a>
+                    <a  class="navbar-brand" href="{% url 'index'%}">
+                        <img src="{% static 'images/logoKanbanLog.png' %}" alt="Logo" style="border-radius: 5px; width: 8vw;">
+                    </a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <!--<ul class="nav navbar-nav">
                         <li class="nav-item">
@@ -81,5 +118,15 @@
                 {% block content %}{% endblock content %}
             </div>
         </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; {{ current_year }} KanbanLog - Todos os direitos reservados.</p>
+            <p>
+                <a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a>
+            </p>
+        </div>
+    </footer>
     </body>        
 </html>

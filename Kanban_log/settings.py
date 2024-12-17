@@ -26,19 +26,19 @@ SECRET_KEY = 'django-insecure-ej$**@0yqn_@ut3@gn4av1-@0clkz3^x!x46yjx=mlx=_bcze5
 DEBUG = True
 
 #Permissão do deploy no vercel
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'Kanban_logs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'Kanban_logs',
+    'django.contrib.staticfiles', 
     'users',
 
     # Instalando apps de terceiros.
@@ -123,6 +123,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+#STATIC_URL = '../Kanban_logs/static/images/logoKanbanLog.png'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
